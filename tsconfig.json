@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "target": "ES2016", // or "ES2017" or "ESNext"
+        "lib": [
+            "es2016",
+            "dom"
+        ], // Specify the library to include `includes`
+        "module": "commonjs",
+        "strict": true,
+        "esModuleInterop": true
+    }
+}
