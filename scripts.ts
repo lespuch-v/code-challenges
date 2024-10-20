@@ -141,7 +141,7 @@ class Library {
         console.log('------------------------------');
         for(let i = 0; i< this.allBooksInLibrary.length; i++){
             if(this.allBooksInLibrary[i].available){
-                console.log('|' +this.allBooksInLibrary[i].title + ' '.repeat(Math.abs(this.allBooksInLibrary[i].title.length - 27)), '|');
+                console.log('|' + this.allBooksInLibrary[i].title + (' ' as any).repeat(Math.abs(this.allBooksInLibrary[i].title.length - 27)), '|');
             }
         }
         console.log('------------------------------');
@@ -159,5 +159,99 @@ library.addBook(killAMockingbird);
 
 // library.returnBook('9780743273565');
 // library.returnBook('489498494964949');
-library.getAvailableBooks();
+// library.getAvailableBooks();
 
+// Write a function that takes two numbers as parameters and returns their sum.
+function sumTwo(a: number, b: number): number {
+    return a + b;
+}
+
+// Write a function that takes a string as input and returns the reversed string.
+function reverseString(str: string): string {
+    return str.split('').reverse().join('')
+}
+
+
+// Write a function that takes an array of numbers and returns the largest number.
+function findLargest(numbers: number[]): number {
+    // Your code here
+    return Math.max(...numbers)
+}
+
+
+
+// Write a function that determines whether a given number is prime.
+function isPrime(num: number): boolean {
+    if(num <= 1) return false;
+
+    for (let i = 2; i <= Math.sqrt(num); i++){
+        if(num % i === 0) return false;
+    }
+
+    return true
+}
+
+console.log(isPrime(4))
+
+// // Write a function that calculates the factorial of a given number.
+// function factorial(n: number): number {
+//     // Your code here
+// }
+
+// 6. Count Vowels in a String
+// Write a function that counts the number of vowels in a given string.
+function countVowels(str: string): number {
+    const vowels: string[] = ['i', 'a', 'o', 'u', 'e', 'y']
+    let letters: string[] = str.split('');
+    let count: number = 0;
+
+    for (let i = 0; i < letters.length; i++){
+        if(vowels.includes(letters[i])){
+            count++
+        }
+    }
+    return count;
+}
+
+
+
+// 7. Find the First Non-Repeated Character
+// Write a function that finds the first non-repeated character in a string.
+function firstNonRepeatedChar(str: string): any {
+    const letters: string[] = str.split('');
+    const myMap = new Map<string, number>();
+
+    // Count the occurrences of each character
+    for (let i = 0; i < letters.length; i++) {
+        let char = letters[i];
+        myMap.set(char, (myMap.get(char) || 0) + 1);
+    }
+
+    // Find the first non-repeated character
+    for (let [char, count] of myMap) {
+        if (count === 1) {
+            return char;
+        }
+    }
+
+    return null; // Return null if no non-repeated character is found
+}
+
+
+
+// Write a function that generates the first n numbers of the Fibonacci sequence.
+// function generateFibonacci(n: number): number[] {
+//     // Your code here
+// }
+
+// 9. Check if a String is a Palindrome
+// Write a function that determines whether a given string is a palindrome.
+function isPalindrome(str: string): boolean {
+    const backwards = str.split('').reverse().join('')
+    return backwards == str
+}
+
+// // Write a function that finds the missing number in an array of integers from 1 to n.
+// function findMissingNumber(numbers: number[]): number {
+//     // Your code here
+// }

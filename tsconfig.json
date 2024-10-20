@@ -1,12 +1,23 @@
 {
     "compilerOptions": {
-        "target": "ES2016", // or "ES2017" or "ESNext"
+        "target": "es2017",
         "lib": [
-            "es2016",
+            "es2017",
             "dom"
-        ], // Specify the library to include `includes`
+        ],
         "module": "commonjs",
         "strict": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "strictBindCallApply": true,
+        "strictPropertyInitialization": true,
+        "alwaysStrict": true,
+        "useUnknownInCatchVariables": true,
+        "outDir": "./dist",
+        "downlevelIteration": true
     }
 }
