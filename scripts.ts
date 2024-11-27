@@ -419,4 +419,8 @@ function evenNumberCounter(numberArray: number[]): number {
     return count
 }
 
-function duplicateRemoval
+function duplicateRemovalItems(arr: Array<string | number>): Array<string | number>{
+    return Array.from(new Set(arr))
+}
+
+console.log(duplicateRemovalItems([1,2,3,2,3,1]))

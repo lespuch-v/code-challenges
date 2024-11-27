@@ -356,4 +356,7 @@ function evenNumberCounter(numberArray) {
     }
     return count;
 }
-console.log(evenNumberCounter([1, 2, 3, 4, 5, 6]));
+function duplicateRemovalItems(arr) {
+    return Array.from(new Set(arr));
+}
+console.log(duplicateRemovalItems([1, 2, 3, 2, 3, 1]));
