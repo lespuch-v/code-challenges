@@ -191,27 +191,24 @@ function isPrime(num: number): boolean {
     return true
 }
 
-console.log(isPrime(4))
+// console.log(isPrime(4))
 
-// // Write a function that calculates the factorial of a given number.
-// function factorial(n: number): number {
-//     // Your code here
-// }
+
 
 // 6. Count Vowels in a String
 // Write a function that counts the number of vowels in a given string.
-function countVowels(str: string): number {
-    const vowels: string[] = ['i', 'a', 'o', 'u', 'e', 'y']
-    let letters: string[] = str.split('');
-    let count: number = 0;
-
-    for (let i = 0; i < letters.length; i++){
-        if(vowels.includes(letters[i])){
-            count++
-        }
-    }
-    return count;
-}
+// function countVowels(str: string): number {
+//     const vowels: string[] = ['i', 'a', 'o', 'u', 'e', 'y']
+//     let letters: string[] = str.split('');
+//     let count: number = 0;
+//
+//     for (let i = 0; i < letters.length; i++){
+//         if(vowels.includes(letters[i])){
+//             count++
+//         }
+//     }
+//     return count;
+// }
 
 
 
@@ -228,11 +225,11 @@ function firstNonRepeatedChar(str: string): any {
     }
 
     // Find the first non-repeated character
-    for (let [char, count] of myMap) {
-        if (count === 1) {
-            return char;
-        }
-    }
+    // for (let [char, count] of myMap) {
+    //     if (count === 1) {
+    //         return char;
+    //     }
+    // }
 
     return null; // Return null if no non-repeated character is found
 }
@@ -255,3 +252,147 @@ function isPalindrome(str: string): boolean {
 // function findMissingNumber(numbers: number[]): number {
 //     // Your code here
 // }
+
+// Write a function that calculates the factorial of a given number.
+function factorial(n: number) {
+    let result = 1;
+    for (let i = 1; i <= n; i++){
+        result *= i
+    }
+    return result
+}
+
+// console.log(factorial(5))
+
+function fizzBuzzTwo(){
+    for (let i = 1; i <= 100; i++){
+        if (i %5 == 0 && i %3 == 0){
+            console.log('FizzBuzz')
+        }else if (i %5 == 0){
+            console.log('Buzz')
+        }else if (i %3 == 0){
+            console.log('Fizz')
+        }else {
+            console.log(i)
+        }
+    }
+}
+
+function reverseStringTwo(str: string): string {
+    let reverseString = '';
+   for (let i = str.length - 1; i >= 0; i--){
+       reverseString += str[i]
+   }
+   return reverseString
+}
+
+function fizzBuzzRedux(num: number): string | number{
+    if (num < 0) return 'negative numbers are not allowed';
+
+    return (num %5 === 0 && num%3 === 0) ? 'FizzBuzz' : num %3 === 0 ? 'Buzz': num %5 === 0 ? 'Fizz' : num;
+}
+
+function wordReverser(str: string){
+    str.split(' ').reverse().join(' ')
+}
+
+function countVowels(str: string): number{
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    let count = 0;
+    const letters = str.split('');
+
+    for (let i = 0; i < letters.length; i++){
+       if(vowels.includes(letters[i])) {
+           count++;
+       }
+    }
+    return count;
+}
+
+
+function flattenArray(arr: any): any {
+    return arr.flat(Infinity)
+}
+
+function frequencyCounter(arr: any[]): any{
+    let dataObject = {}
+
+    for (let i = 0; i < arr.length; i++) {
+        if(dataObject[arr[i]] === undefined){
+            dataObject[arr[i]] = 0;
+        }else{
+            dataObject[arr[i]]++;
+        }
+    }
+    return dataObject;
+}
+
+
+function palindromeChecker(str: string):boolean {
+    const forward = str.split('').filter(space => space !== ' ');
+    const backwards = str.split('').filter(space => space !== ' ').reverse();
+
+    return forward.join('') === backwards.join('');
+}
+
+function findMissingNumber(array: number[]) {
+    const arrayLength = array.length;
+
+    let calculateSum = arrayLength * (arrayLength + 1) / 2;
+    let actualSum = array.reduce((a, b) => a + b);
+
+    return calculateSum - actualSum;
+}
+
+
+function nonRepeatingCharacter(str: string): any {
+    const letters = str.split('')
+    const dataObj: { [key: string]: number } = {}
+
+    for (let i = 0; i < letters.length; i++){
+        if (dataObj[letters[i]] === undefined){
+            dataObj[letters[i]] = 1
+        }else {
+            dataObj[letters[i]]++
+        }
+    }
+
+    for (const char of str){
+        if(dataObj[char] === 1){
+            return char
+        }
+    }
+}
+
+function moodMessageGenerator(mood: string, time: number): string {
+    const userMood = mood.toLowerCase();
+    // Morning (5:00 AM to 11:59 AM)
+    if (time >= 5 && time < 12) {
+        if (userMood === 'exited'){
+            return 'Heeeeeellloo, im happy that your are exited this early in the morning!'
+        } else if (userMood === 'enthusiastic'){
+            return 'Ready to tackle your daytime Challenges? Enthusiastic about your day!';
+        } else if (userMood === 'energetic') {
+            return 'Early in the morning and full of energy!';
+        } else if (userMood === 'inspired') {
+            return 'Inspired in morning ✍️';
+        }else if (userMood === 'confident') {
+            return 'Confidence in the morning! I like it!'
+        }else {
+            return `Happy day! In your ${mood}!`
+        }
+    }
+    // Afternoon (12:00 PM to 4:59 PM)
+    else if (time >= 12 && time < 17) {
+        if (userMood === '')
+    }
+    // Evening (5:00 PM to 8:59 PM)
+    else if (time >= 17 && time < 21) {
+
+    }
+    // Night (9:00 PM to 4:59 AM)
+    else if (time >= 21 || time < 5) {
+
+    }
+}
+

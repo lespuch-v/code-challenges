@@ -142,46 +142,44 @@ library.addBook(killAMockingbird);
 // library.returnBook('9780743273565');
 // library.returnBook('489498494964949');
 // library.getAvailableBooks();
-// 1. Sum of Two Numbers
 // Write a function that takes two numbers as parameters and returns their sum.
 function sumTwo(a, b) {
     return a + b;
 }
-// 2. Reverse a String
 // Write a function that takes a string as input and returns the reversed string.
 function reverseString(str) {
     return str.split('').reverse().join('');
 }
-// 3. Find the Largest Number in an Array
 // Write a function that takes an array of numbers and returns the largest number.
 function findLargest(numbers) {
     // Your code here
     return Math.max.apply(Math, numbers);
 }
-// 4. Check if a Number is Prime
 // Write a function that determines whether a given number is prime.
-// function isPrime(num: number): boolean {
-//     // Your code here
-// }
-//
-// // 5. Calculate Factorial
-// // Write a function that calculates the factorial of a given number.
-// function factorial(n: number): number {
-//     // Your code here
-// }
+function isPrime(num) {
+    if (num <= 1)
+        return false;
+    for (var i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0)
+            return false;
+    }
+    return true;
+}
+// console.log(isPrime(4))
 // 6. Count Vowels in a String
 // Write a function that counts the number of vowels in a given string.
-function countVowels(str) {
-    var vowels = ['i', 'a', 'o', 'u', 'e', 'y'];
-    var letters = str.split('');
-    var count = 0;
-    for (var i = 0; i < letters.length; i++) {
-        if (vowels.includes(letters[i])) {
-            count++;
-        }
-    }
-    return count;
-}
+// function countVowels(str: string): number {
+//     const vowels: string[] = ['i', 'a', 'o', 'u', 'e', 'y']
+//     let letters: string[] = str.split('');
+//     let count: number = 0;
+//
+//     for (let i = 0; i < letters.length; i++){
+//         if(vowels.includes(letters[i])){
+//             count++
+//         }
+//     }
+//     return count;
+// }
 // 7. Find the First Non-Repeated Character
 // Write a function that finds the first non-repeated character in a string.
 function firstNonRepeatedChar(str) {
@@ -193,16 +191,13 @@ function firstNonRepeatedChar(str) {
         myMap.set(char, (myMap.get(char) || 0) + 1);
     }
     // Find the first non-repeated character
-    for (var _i = 0, myMap_1 = myMap; _i < myMap_1.length; _i++) {
-        var _a = myMap_1[_i], char = _a[0], count = _a[1];
-        if (count === 1) {
-            return char;
-        }
-    }
+    // for (let [char, count] of myMap) {
+    //     if (count === 1) {
+    //         return char;
+    //     }
+    // }
     return null; // Return null if no non-repeated character is found
 }
-console.log(firstNonRepeatedChar('aahhhooj')); // Should print 'j'
-// 8. Generate Fibonacci Sequence
 // Write a function that generates the first n numbers of the Fibonacci sequence.
 // function generateFibonacci(n: number): number[] {
 //     // Your code here
@@ -213,8 +208,103 @@ function isPalindrome(str) {
     var backwards = str.split('').reverse().join('');
     return backwards == str;
 }
-// 10. Find the Missing Number
 // // Write a function that finds the missing number in an array of integers from 1 to n.
 // function findMissingNumber(numbers: number[]): number {
 //     // Your code here
 // }
+// Write a function that calculates the factorial of a given number.
+function factorial(n) {
+    var result = 1;
+    for (var i = 1; i <= n; i++) {
+        result *= i;
+    }
+    return result;
+}
+// console.log(factorial(5))
+function fizzBuzzTwo() {
+    for (var i = 1; i <= 100; i++) {
+        if (i % 5 == 0 && i % 3 == 0) {
+            console.log('FizzBuzz');
+        }
+        else if (i % 5 == 0) {
+            console.log('Buzz');
+        }
+        else if (i % 3 == 0) {
+            console.log('Fizz');
+        }
+        else {
+            console.log(i);
+        }
+    }
+}
+function reverseStringTwo(str) {
+    var reverseString = '';
+    for (var i = str.length - 1; i >= 0; i--) {
+        reverseString += str[i];
+    }
+    return reverseString;
+}
+function fizzBuzzRedux(num) {
+    if (num < 0)
+        return 'negative numbers are not allowed';
+    return (num % 5 === 0 && num % 3 === 0) ? 'FizzBuzz' : num % 3 === 0 ? 'Buzz' : num % 5 === 0 ? 'Fizz' : num;
+}
+function wordReverser(str) {
+    str.split(' ').reverse().join(' ');
+}
+function countVowels(str) {
+    var vowels = ['a', 'e', 'i', 'o', 'u'];
+    var count = 0;
+    var letters = str.split('');
+    for (var i = 0; i < letters.length; i++) {
+        if (vowels.includes(letters[i])) {
+            count++;
+        }
+    }
+    return count;
+}
+function flattenArray(arr) {
+    return arr.flat(Infinity);
+}
+function frequencyCounter(arr) {
+    var dataObject = {};
+    for (var i = 0; i < arr.length; i++) {
+        if (dataObject[arr[i]] === undefined) {
+            dataObject[arr[i]] = 0;
+        }
+        else {
+            dataObject[arr[i]]++;
+        }
+    }
+    return dataObject;
+}
+function palindromeChecker(str) {
+    var forward = str.split('').filter(function (space) { return space !== ' '; });
+    var backwards = str.split('').filter(function (space) { return space !== ' '; }).reverse();
+    return forward.join('') === backwards.join('');
+}
+function findMissingNumber(array) {
+    var arrayLength = array.length;
+    var calculateSum = arrayLength * (arrayLength + 1) / 2;
+    var actualSum = array.reduce(function (a, b) { return a + b; });
+    return calculateSum - actualSum;
+}
+function nonRepeatingCharacter(str) {
+    var letters = str.split('');
+    var dataObj = {};
+    for (var i = 0; i < letters.length; i++) {
+        if (dataObj[letters[i]] === undefined) {
+            dataObj[letters[i]] = 1;
+        }
+        else {
+            dataObj[letters[i]]++;
+        }
+    }
+    for (var _i = 0, str_1 = str; _i < str_1.length; _i++) {
+        var char = str_1[_i];
+        if (dataObj[char] === 1) {
+            return char;
+        }
+    }
+}
+console.log(nonRepeatingCharacter('leetcode'));
