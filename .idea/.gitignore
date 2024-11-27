@@ -1,0 +1,10 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+./coding-challenges.iml
+./git_toolbox_blame.xml
+./git_toolbox_prj.xml
+./modules.xml
+./vcs.xml

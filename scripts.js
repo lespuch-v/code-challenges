@@ -307,4 +307,53 @@ function nonRepeatingCharacter(str) {
         }
     }
 }
-console.log(nonRepeatingCharacter('leetcode'));
+function arraySumCalculator(arr) {
+    return arr.reduce(function (a, b) { return a + b; }, 0);
+}
+function stringForLoopReversal(str) {
+    var letters = str.split('');
+    var result = '';
+    for (var i = letters.length - 1; i >= 0; i--) {
+        result += letters[i];
+    }
+    return result;
+}
+function vowelCounter(str) {
+    if (!str)
+        return -1;
+    var vowels = ['a', 'e', 'i', 'o', 'u'];
+    var letters = str.split('');
+    var count = 0;
+    for (var i = 0; i < letters.length; i++) {
+        if (vowels.includes(letters[i])) {
+            count++;
+        }
+    }
+    return count;
+}
+function fizzBuzz() {
+    for (var i = 1; i <= 100; i++) {
+        if (i % 3 == 0 && i % 5 == 0) {
+            console.log('FizzBuzz');
+        }
+        else if (i % 5 == 0) {
+            console.log('Buzz');
+        }
+        else if (i % 3 == 0) {
+            console.log('Fizz');
+        }
+        else {
+            console.log(i);
+        }
+    }
+}
+function evenNumberCounter(numberArray) {
+    var count = 0;
+    for (var i = 0; i < numberArray.length; i++) {
+        if (numberArray[i] % 2 == 0) {
+            count++;
+        }
+    }
+    return count;
+}
+console.log(evenNumberCounter([1, 2, 3, 4, 5, 6]));

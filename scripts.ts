@@ -364,35 +364,59 @@ function nonRepeatingCharacter(str: string): any {
     }
 }
 
-function moodMessageGenerator(mood: string, time: number): string {
-    const userMood = mood.toLowerCase();
-    // Morning (5:00 AM to 11:59 AM)
-    if (time >= 5 && time < 12) {
-        if (userMood === 'exited'){
-            return 'Heeeeeellloo, im happy that your are exited this early in the morning!'
-        } else if (userMood === 'enthusiastic'){
-            return 'Ready to tackle your daytime Challenges? Enthusiastic about your day!';
-        } else if (userMood === 'energetic') {
-            return 'Early in the morning and full of energy!';
-        } else if (userMood === 'inspired') {
-            return 'Inspired in morning ✍️';
-        }else if (userMood === 'confident') {
-            return 'Confidence in the morning! I like it!'
-        }else {
-            return `Happy day! In your ${mood}!`
+function arraySumCalculator(arr: number[]): number{
+    return arr.reduce((a, b) => a + b, 0)
+}
+
+function stringForLoopReversal(str: string): string {
+    let letters = str.split('');
+    let result = '';
+
+    for(let i= letters.length -1; i>=0; i--){
+        result += letters[i];
+    }
+    return result
+}
+
+function vowelCounter(str: string): number {
+    if (!str) return -1;
+
+    const vowels = ['a', 'e', 'i', 'o', 'u']
+    const letters = str.split('')
+    let count = 0;
+
+    for (let i = 0; i < letters.length; i++) {
+        if (vowels.includes(letters[i])){
+            count++
         }
     }
-    // Afternoon (12:00 PM to 4:59 PM)
-    else if (time >= 12 && time < 17) {
-        if (userMood === '')
-    }
-    // Evening (5:00 PM to 8:59 PM)
-    else if (time >= 17 && time < 21) {
+    return count
+}
 
-    }
-    // Night (9:00 PM to 4:59 AM)
-    else if (time >= 21 || time < 5) {
-
+function fizzBuzz():void {
+    for (let i = 1; i <= 100; i++){
+        if (i %3 == 0 && i %5 == 0){
+            console.log('FizzBuzz');
+        } else if (i %5 == 0){
+            console.log('Buzz');
+        }else if (i %3 == 0){
+            console.log('Fizz')
+        }else {
+            console.log(i)
+        }
     }
 }
 
+function evenNumberCounter(numberArray: number[]): number {
+    let count = 0;
+
+    for (let i = 0; i < numberArray.length; i++) {
+        if (numberArray[i] % 2 == 0) {
+            count++;
+        }
+    }
+
+    return count
+}
+
+function duplicateRemoval
