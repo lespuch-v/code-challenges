@@ -393,15 +393,15 @@ function vowelCounter(str: string): number {
     return count
 }
 
-function fizzBuzz():void {
-    for (let i = 1; i <= 100; i++){
-        if (i %3 == 0 && i %5 == 0){
+function fizzBuzz(): void {
+    for (let i = 1; i <= 100; i++) {
+        if (i % 3 == 0 && i % 5 == 0) {
             console.log('FizzBuzz');
-        } else if (i %5 == 0){
+        } else if (i % 5 == 0) {
             console.log('Buzz');
-        }else if (i %3 == 0){
+        } else if (i % 3 == 0) {
             console.log('Fizz')
-        }else {
+        } else {
             console.log(i)
         }
     }
@@ -423,4 +423,49 @@ function duplicateRemovalItems(arr: Array<string | number>): Array<string | numb
     return Array.from(new Set(arr))
 }
 
-console.log(duplicateRemovalItems([1,2,3,2,3,1]))
+function wordFrequencyCounter(str: string): { [key: string]: number } {
+    const words = str.split(' ');
+    const wordCountMap: { [key: string]: number } = {};
+
+    for (let i = 0; i < words.length; i++){
+        if (wordCountMap[words[i]] === undefined){
+            wordCountMap[words[i]] = 1
+        }else {
+            wordCountMap[words[i]]++
+        }
+    }
+    return wordCountMap
+}
+
+// console.log(wordFrequencyCounter("hello world hello everyone hello"))
+
+interface Temperature {
+    value: number;
+    unit: "C" | "F";
+}
+
+function celsiusToFahrenheit(num: number): Temperature {
+    return {
+        value: (num * (9/5)) + 32,
+        unit: 'F'
+    }
+}
+
+function fahrenheitToCelsius(num: number): Temperature {
+    return {
+        value: (num - 32) * 5/9,
+        unit: 'C'
+    }
+}
+
+function stringReverser(str: string): string {
+    if(typeof str !== 'string') {
+        throw new Error('Input must be a string!')
+    }
+
+    if (str === '') return '';
+
+    return str.split('').reverse().join('')
+}
+
+console.log(stringReverser('hello'))

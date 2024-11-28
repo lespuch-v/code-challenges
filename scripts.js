@@ -359,4 +359,34 @@ function evenNumberCounter(numberArray) {
 function duplicateRemovalItems(arr) {
     return Array.from(new Set(arr));
 }
-console.log(duplicateRemovalItems([1, 2, 3, 2, 3, 1]));
+function wordFrequencyCounter(str) {
+    var words = str.split(' ');
+    var wordCountMap = {};
+    for (var i = 0; i < words.length; i++) {
+        if (wordCountMap[words[i]] === undefined) {
+            wordCountMap[words[i]] = 1;
+        }
+        else {
+            wordCountMap[words[i]]++;
+        }
+    }
+    return wordCountMap;
+}
+function celsiusToFahrenheit(num) {
+    return {
+        value: (num * (9 / 5)) + 32,
+        unit: 'F'
+    };
+}
+function fahrenheitToCelsius(num) {
+    return {
+        value: (num - 32) * 5 / 9,
+        unit: 'C'
+    };
+}
+function stringReverser(str) {
+    if (!str)
+        return 'Not a string';
+    return str.split('').reverse().join('');
+}
+console.log(stringReverser('hello'));
